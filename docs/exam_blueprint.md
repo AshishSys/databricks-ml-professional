@@ -1,60 +1,50 @@
-# Study Plan
+# Exam Blueprint
 
 ## Purpose
-A focused, timeboxed study plan to prepare for the Databricks Certified Machine Learning Professional exam and to complete the hands‑on labs and notebooks in this repository.
+Concise mapping of exam domains to repository content and suggested practice tasks.
 
-## Duration and cadence
-- **Total duration:** 6 weeks (adjustable).  
-- **Weekly cadence:** 3–5 focused sessions per week; 1–2 hours per session.  
-- **Milestones:** end of Week 2 (feature engineering), Week 4 (training and registry), Week 6 (serving and monitoring).
+## Exam domains and weightings
+- **Feature Engineering and Data Preparation** 25%  
+- **Model Training and MLflow Tracking** 25%  
+- **Model Registry and Deployment** 20%  
+- **Serving and Monitoring** 20%  
+- **Operationalization and Governance** 10%
 
-## Weekly breakdown
-### Week 1 Setup and Fundamentals
-- Read repository README and run environment setup notebook.
-- Configure Databricks workspace, create a cluster with ML runtime.
-- Create Databricks secret scope and add `DATABRICKS_HOST` and `DATABRICKS_TOKEN`.
+## Mapping to repository
+- **Feature Engineering and Data Preparation**
+  - Primary: `notebooks/01-Feature-Engineering-and-Point-in-Time.ipynb`, `labs/lab1_point_in_time.md`
+  - Practice: implement point‑in‑time joins, materialize Delta feature tables, validate no leakage.
 
-### Week 2 Feature Engineering and Point in Time
-- Complete `notebooks/01-Feature-Engineering-and-Point-in-Time.ipynb`.
-- Run Lab 1 `labs/lab1_point_in_time.md` end-to-end.
-- Validate point‑in‑time joins and materialized feature table.
+- **Model Training and MLflow Tracking**
+  - Primary: `notebooks/02-Training-MLflow-Tracking-Model-Registry.ipynb`, `labs/lab2_mlflow_registry.md`
+  - Practice: log params/metrics/artifacts, reproduce runs, infer model signature.
 
-### Week 3 Training and MLflow Tracking
-- Complete `notebooks/02-Training-MLflow-Tracking-Model-Registry.ipynb`.
-- Run Lab 2 `labs/lab2_mlflow_registry.md`.
-- Practice logging experiments, registering models, and adding signatures.
+- **Model Registry and Deployment**
+  - Primary: `labs/lab2_mlflow_registry.md`, `labs/lab3_serving_canary.md`
+  - Practice: register models, stage transitions, simulate CI promotion, create rollback plan.
 
-### Week 4 Model Registry and Promotion Workflows
-- Implement model versioning and stage transitions.
-- Simulate CI promotion and smoke tests.
-- Add automated checks for model metadata and metrics.
+- **Serving and Monitoring**
+  - Primary: `notebooks/03-Serving-and-Monitoring.ipynb`, `labs/lab3_serving_canary.md`, `labs/lab4_monitoring_retraining.md`
+  - Practice: deploy model endpoints, run canary tests, implement drift detection and alerts.
 
-### Week 5 Serving and Canary Deployments
-- Complete `notebooks/03-Serving-and-Monitoring.ipynb`.
-- Run Lab 3 `labs/lab3_serving_canary.md`.
-- Practice canary traffic simulation and rollback logic.
+- **Operationalization and Governance**
+  - Primary: `docs/study_plan.md`, `labs/lab4_monitoring_retraining.md`
+  - Practice: secrets management, job scheduling, reproducibility, access controls.
 
-### Week 6 Monitoring Retraining and Final Review
-- Run Lab 4 `labs/lab4_monitoring_retraining.md`.
-- Implement drift checks and trigger retraining job.
-- Review cheat sheet and practice questions in `notebooks/99-CheatSheet-40-Practice-Questions.ipynb`.
-- Do a full mock exam walkthrough and fix gaps.
+## Practical tasks to master each domain
+- Build a reproducible training pipeline that logs to MLflow.  
+- Register a model and write a script to transition stages via API.  
+- Create a Delta feature table and demonstrate point‑in‑time joins.  
+- Deploy a model endpoint and run a canary traffic test with rollback.  
+- Implement a drift detection notebook and trigger a retrain job.
 
-## Study tips
-- **Hands‑on first:** run notebooks on Databricks Repos for two‑way sync.  
-- **Log everything:** use MLflow for experiments and store metrics in Delta for reproducibility.  
-- **Small iterations:** commit frequently and use branches for experiments.  
-- **Simulate production:** test model promotion, serving, and rollback in a controlled environment.  
-- **Use secrets:** never hardcode tokens; use Databricks secret scopes and GitHub Actions secrets.
+## Exam day checklist
+- Confirm Databricks cluster runtime and libraries.  
+- Ensure MLflow tracking server and Model Registry are accessible.  
+- Have sample datasets and notebooks ready to run.  
+- Know how to access secrets and tokens securely.  
+- Timebox tasks and focus on reproducible, auditable steps.
 
-## Deliverables by end of study plan
-- Delta feature tables and training set.  
-- Registered model with at least one staged version.  
-- A serving endpoint or local serving simulation with canary test.  
-- Monitoring notebooks and a retraining job trigger.  
-- Completed cheat sheet notebook and lab markdowns.
-
-## Resources
-- Databricks documentation for Feature Store, MLflow, and Jobs.  
-- Official exam guide and blueprint (see exam blueprint file).  
-- This repository labs and notebooks for hands‑on practice.
+## Notes
+- Use this blueprint to prioritize study time according to domain weightings.  
+- Keep the repository updated with any additional practice scripts or notes.
